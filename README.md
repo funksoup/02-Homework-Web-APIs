@@ -14,25 +14,16 @@ Project is created with:
 
 ## Usage
 
-The ```objQA``` object holds the test questions and has the following methods:
+The `objQA` object holds the test questions and has the following methods:
 
 
-### ``` objQA = [```
-		```	{question: , string ```
-		```	choices: [string, string, string],```	
-		```	correctAnswer: string,```	
-	```	} ```	
-		```	{question: , string ```	
-		```	choices: [string, string, string], ```	
-		```	correctAnswer: string,```	
-	```	} ```	
-	```	} ```	
-		```	{question: , string ```	
-		```	choices: [string, string, string], ```	
-		```	correctAnswer: string,```	
-	```	} ```	 
-	```	];```
-
+``` 
+	objQA = [
+		{question: string,
+		choices: [string, string, string],	
+		correctAnswer: string,	
+		}]
+```
 
 ## Contributing
 
