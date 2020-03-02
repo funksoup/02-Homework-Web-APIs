@@ -16,32 +16,28 @@ Project is created with:
 
 The ```objQA``` object holds the test questions and has the following methods:
 
-### ``` objQA = [
-			{question: , string
-			choices: [string, string, string],
-			correctAnswer: string,
-		} 
-			{question: , string
-			choices: [string, string, string],
-			correctAnswer: string,
-		} 
-		} 
-			{question: , string
-			choices: [string, string, string],
-			correctAnswer: string,
-		} 
-		];```
 
-
-
-The following animation demonstrates the application functionality:
-
-![code quiz](./Assets/04-web-apis-homework-demo.gif)
+### ``` objQA = [```
+		```	{question: , string ```
+		```	choices: [string, string, string],```	
+		```	correctAnswer: string,```	
+	```	} ```	
+		```	{question: , string ```	
+		```	choices: [string, string, string], ```	
+		```	correctAnswer: string,```	
+	```	} ```	
+	```	} ```	
+		```	{question: , string ```	
+		```	choices: [string, string, string], ```	
+		```	correctAnswer: string,```	
+	```	} ```	 
+	```	];```
 
 
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
 
 ### Step 1
 
