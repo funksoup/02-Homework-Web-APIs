@@ -1,42 +1,60 @@
 # 04 Web APIs: Code Quiz
 
-As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment, which is typically a combination of multiple-choice questions and interactive challenges. Build a timed code quiz with multiple-choice questions. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
+Simple, timed coding quiz with multiple choice questions. Runs in browser and features dynamically updated HTML and CSS. 
 
-## User Story
 
-```
-AS A coding bootcamp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
+## Tech/Framework Used
 
-## Acceptance Criteria
+Project is created with:
 
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
-```
+* Bootstrap 4.0.0
+* jQuery 3.4.1
+* JavaScript
+
+
+## Usage
+
+The ```objQA``` object holds the test questions and has the following methods:
+
+### ``` objQA = [
+			{question: , string
+			choices: [string, string, string],
+			correctAnswer: string,
+		} 
+			{question: , string
+			choices: [string, string, string],
+			correctAnswer: string,
+		} 
+		} 
+			{question: , string
+			choices: [string, string, string],
+			correctAnswer: string,
+		} 
+		];```
+
+
 
 The following animation demonstrates the application functionality:
 
 ![code quiz](./Assets/04-web-apis-homework-demo.gif)
 
-### Review
 
-You are required to submit the following for review:
+## Contributing
 
-* The URL of the functional, deployed application.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+### Step 1
 
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+* Option 1:🍴 Fork this repo!
+
+* Option 2: 👯 Clone this repo to your local machine using https://github.com/funksoup/02-Homework-Web-APIs.git
+
+### Step 2
+
+* HACK AWAY! 🔨🔨🔨
+
+### Step 3
+
+* 🔃 Create a new pull request using https://github.com/funksoup/02-Homework-Web-APIs/compare 
+
+
