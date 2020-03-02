@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Code Quiz</title>
+
+<!-- Added link to font awesome icons -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Added link to the jQuery Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Added a link to Bootstrap-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<style type="text/css">
+	body {
+		padding: 10px;
+		display: block;
+		text-align: center;
+		
+	}
+
+	.answer-button {
+		display: block;
+		width: 200px;
+		margin: 10px;
+	}
+
+
+
+</style>
+
+</head>
+<body>
+
+	<h1>Coding Quiz Challenge</h1>
+	<br>
+	<div id="button-area">
+	<button id="button-start">Start Quiz</button>
+	</div>
+
+	<div id="question-area"></div>
+
+	<div id="display-countdown"></div>
+
+	<script type="text/javascript">
+		
+	// Create Q&A Object
+
+	var currentQuestion = 0;
+
+		var objQA = [
+		{question: "What is the difference between “==” and “===” ?",
+			choices: ["1. == compares both type and values and === only compares values", "2. == only compares values and === compare both values and type", "3. They're both the same"],
+			correctAnswer: "The correct answer is 2. '== only compares values and === compare both values and type' ",
+		},
+
+		{question: "How can you add one new element at end of an array in javascript?",
+			choices: ["1. The pop method adds one or more elements to the end of an array", "2. The splice method adds one or more elements to the end of an array", "3. The push method adds one or more elements to the end of an array"], 
+			correctAnswer: "The correct answer is 3. 'The push method adds one or more elements to the end of an array' ",
+		},
+
+		{question: "Does the concat method modify the original array or return a new array?",
+			choices: ["1. The concat method modifies the original array", "2. The concat method returns a new array", "3. Neither"], 
+			correctAnswer: "The correct answer is 2. 'The concat method returns a new array' ",
+		}
+	];
+
+	// access questions: objQA[0].question
+	// access choices: objQA[0].choices
+	// access specific choice: objQA[0].choices[1]
+	// access correctAnswer: objQA[0].correctAnswer
+
+
+	// create start button (HTML)
+	// attach click event
+
+	$(document).ready(function() {
+
+		$("#button-start").on("click", function() {
+
+		//  start timer countdown (setInterval method recommended)
+
+		// display first question + answers + data attributes 
+		// (1 question, 4 potential answers)
+		displayQuestion(currentQuestion);
+
+		});
+
+	});
+
+	function startCountDown (seconds) {
+		var counter = seconds;
+
+		var interval = setInterval(() => {
+			console.log(counter);
+			counter--;
+
+			if(counter<0) {
+				clearInterval(interval);
+				console.log("Ding");
+			};
+
+			}, 1000);
+		
+	};
+
+	// function stopCountDown 
+
+
+	function displayQuestion(questionNumber) {
+		// var i = 0;
+		// var objQAString = JSON.stringify(objQA[i]);
+		
+		// create div for question element & .addClass("card");
+		var questionElement = $("#question-area").append("<div>")
+			.addClass("card question-element")
+			.append(cardHeader);
+		// add header 
+		var cardHeader = $("#question-area").append("<div>")
+			.addClass("card-header")
+			.text(objQA[questionNumber].question);
+
+		// generate choices/answers	
+		// create div for question body & .addClass("card-body");
+		var answers = $("#question-element").append("<div>")
+			.addClass("card-body choices-div");
+
+		// attach click event
+		$(".answers").on("click", function(e) {
+			console.log(e.target.attr("data-answer-index"));
+			});			    
+
+		// fix this - generate button for each answer
+		objQA[questionNumber].choices.forEach((answer, answerIndex) =>  {
+			var answerBtn = $("choices-div").append("<button>")
+			.addClass("btn btn-primary answer-button")
+			.attr("data-answer-index", answerIndex)
+			.text(answer)
+			$(".choices-div").append(answerBtn);
+		});
+
+
+		$("question-area").append(questionElement);
+		$("question-area").append(answers);
+
+		// $("#question-area").append(`<p>${objQAString}</p>`);
+	};
+
+
+	// generate next question
+	// increment currentQuestion +1 
+	// displayQuestion(currentQuestion);
+
+		// add "click" event for answer buttons
+
+			// increment question counter
+			// generate question
+			// if incorrect, deduct time
+
+		// if done
+			// generate form for user
+			// save score to local storage
+			// clear and show scores
+			
+
+
+	</script>
+
+</body>
+</html>
