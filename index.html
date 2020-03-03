@@ -24,6 +24,12 @@
 		
 	}
 
+	#answer-choices {
+		text-align: left;
+		margin-left: 100px;
+		margin-right: 100px;
+	}
+
 	.answer-button {
 		display: block;
 		width: 200px;
@@ -44,6 +50,8 @@
 	</div>
 
 	<div id="question-area"></div>
+
+	<div id="answer-choices"></div>
 
 	<div id="display-countdown"></div>
 
@@ -79,9 +87,9 @@
 		$("#button-start").on("click", function() {
 
 
-		// display first question + answers + data attributes 
-		// (1 question, 4 potential answers)
+		// display first question + answer choices
 		displayQuestion(currentQuestion);
+		// start timer
 		startCountDown();
 
 		});
@@ -90,38 +98,68 @@
 
 	// create function to display questions & answer choices
 	function displayQuestion(questionNumber) {
-		
-		// create div for question element & .addClass("card");
-		var questionElement = $("#question-area").append("<div>")
-			.addClass("card question-element")
-			.append(cardHeader);
-		// add header 
+
+		// add question header div, class and content
 		var cardHeader = $("#question-area").append("<div>")
 			.addClass("card-header")
 			.text(objQA[questionNumber].question);
 
-		// generate answer choices
-		// create div for question body & .addClass("card-body");
-		var answers = $("#question-element").append("<div>")
-			.addClass("card-body choices-div");
+		// add answer choices div and class
+		var cardBody = $("#answer-choices").append("<div>")
+			.addClass("card");
 
-		// attach click event
-		$(".answers").on("click", function(e) {
-			console.log(e.target.attr("data-answer-index"));
-			});			    
+		// iterate through objQA[questionNumber].choices array
+		var choicesArray = objQA[questionNumber].choices;
+			choicesArray.forEach(element => {
 
-		// generate button for each answer
-		objQA[questionNumber].choices.forEach((answer, answerIndex) =>  {
-			var answerBtn = $("choices-div").append("<button>")
-			.addClass("btn btn-primary answer-button")
-			.attr("data-answer-index", answerIndex)
-			.text(answer)
-			$(".choices-div").append(answerBtn);
-		});
+				let p = document.createElement('p');
+   				p.textContent = element;
+    			document.querySelector('#answer-choices').appendChild(p);
+
+				// let p = $("#answer-choices").append("<p>");
+				// p.text = element;
+				// $("#answer-choices").append(p);
+
+			});
+
+				// console.log(element));
+			// $("#answer-choices").text(element));
 
 
-		// $("question-area").append(questionElement);
-		$("question-element").append(answers);
+				// $("#answer-choices").append("<p>")
+				// $("#answer-choices").addClass("answer-choice")
+				// $(".answer-choice").text(objQA[questionNumber].choices)
+				// );
+
+
+			
+
+
+		// //  .addClass("card") to answer-choices div
+		// var choicesElement = $("#answer-choices");
+		// 	choicesElement.addClass("card");
+
+		// create div for answer choices content & .addClass("card-body");
+		// var answers = $("#question-element").append("<div>")
+		// 	.addClass("card-body choices-div");
+
+		// // attach click event
+		// $(".answers").on("click", function(e) {
+		// 	console.log(e.target.attr("data-answer-index"));
+		// 	});			    
+
+		// // generate button for each answer choice
+		// objQA[questionNumber].choices.forEach((answer, answerIndex) =>  {
+		// 	var answerBtn = $(".choices-div").append("<button>")
+		// 	.addClass("btn btn-primary answer-button")
+		// 	.attr("data-answer-index", answerIndex)
+		// 	.text(answer)
+		// 	$(".choices-div").append(answerBtn);
+		// });
+
+
+		// // $("question-area").append(questionElement);
+		// $("question-element").append(answers);
 
 	};
 
@@ -135,14 +173,13 @@
 
 		var interval = setInterval(() => {
 			secondsRemaining--;
-			console.log(secondsRemaining);
 
 		// display seconds remaining
 		timeCount.text("Time remaining: " + secondsRemaining);
 
 			if(secondsRemaining === 0) {
 				clearInterval(interval);
-				console.log("Time's up!");
+				timeCount.text("Time's up!");
 			};
 
 			}, 1000);
