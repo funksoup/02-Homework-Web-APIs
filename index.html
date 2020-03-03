@@ -112,30 +112,16 @@
 		var choicesArray = objQA[questionNumber].choices;
 			choicesArray.forEach(element => {
 
-				let p = document.createElement('p');
-   				p.textContent = element;
-    			document.querySelector('#answer-choices').appendChild(p);
-
-				// let p = $("#answer-choices").append("<p>");
-				// p.text = element;
-				// $("#answer-choices").append(p);
-
+				$("#answer-choices").append($("<p></p>"))
+					.append(element);
 			});
 
-				// console.log(element));
-			// $("#answer-choices").text(element));
-
-
-				// $("#answer-choices").append("<p>")
-				// $("#answer-choices").addClass("answer-choice")
-				// $(".answer-choice").text(objQA[questionNumber].choices)
-				// );
 
 
 			
 
 
-		// //  .addClass("card") to answer-choices div
+		// //  .addClass("card") to answer-choices choices-div
 		// var choicesElement = $("#answer-choices");
 		// 	choicesElement.addClass("card");
 
