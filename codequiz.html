@@ -5,6 +5,7 @@
 
 <!-- Added link to font awesome icons -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <!-- Added link to the jQuery Library -->
   <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -69,11 +70,6 @@
 		}
 	];
 
-	// access questions: objQA[0].question
-	// access choices: objQA[0].choices
-	// access specific choice: objQA[0].choices[1]
-	// access correctAnswer: objQA[0].correctAnswer
-
 
 	// create start button (HTML)
 	// attach click event
@@ -82,7 +78,6 @@
 
 		$("#button-start").on("click", function() {
 
-		//  start timer countdown (setInterval method recommended)
 
 		// display first question + answers + data attributes 
 		// (1 question, 4 potential answers)
@@ -92,28 +87,8 @@
 
 	});
 
-	function startCountDown (seconds) {
-		var counter = seconds;
-
-		var interval = setInterval(() => {
-			console.log(counter);
-			counter--;
-
-			if(counter<0) {
-				clearInterval(interval);
-				console.log("Ding");
-			};
-
-			}, 1000);
-		
-	};
-
-	// function stopCountDown 
-
-
+	// create function to display questions & answer choices
 	function displayQuestion(questionNumber) {
-		// var i = 0;
-		// var objQAString = JSON.stringify(objQA[i]);
 		
 		// create div for question element & .addClass("card");
 		var questionElement = $("#question-area").append("<div>")
@@ -124,7 +99,7 @@
 			.addClass("card-header")
 			.text(objQA[questionNumber].question);
 
-		// generate choices/answers	
+		// generate answer choices
 		// create div for question body & .addClass("card-body");
 		var answers = $("#question-element").append("<div>")
 			.addClass("card-body choices-div");
@@ -134,7 +109,7 @@
 			console.log(e.target.attr("data-answer-index"));
 			});			    
 
-		// fix this - generate button for each answer
+		// generate button for each answer
 		objQA[questionNumber].choices.forEach((answer, answerIndex) =>  {
 			var answerBtn = $("choices-div").append("<button>")
 			.addClass("btn btn-primary answer-button")
@@ -144,27 +119,43 @@
 		});
 
 
-		$("question-area").append(questionElement);
-		$("question-area").append(answers);
+		// $("question-area").append(questionElement);
+		$("question-element").append(answers);
 
-		// $("#question-area").append(`<p>${objQAString}</p>`);
 	};
 
 
-	// generate next question
+	//  start timer countdown (setInterval method recommended)
+	function startCountDown (seconds) {
+		var counter = seconds;
+
+		var interval = setInterval(() => {
+			console.log(counter);
+			counter--;
+
+			if(counter<0) {
+				clearInterval(interval);
+				console.log("Time's up!");
+			};
+
+			}, 1000);
+		
+	};
+
+	// create a stopCountDown function that stops the timer  
+
+	// if incorrect, deduct time
+
 	// increment currentQuestion +1 
-	// displayQuestion(currentQuestion);
 
-		// add "click" event for answer buttons
+	// generate next question
 
-			// increment question counter
-			// generate question
-			// if incorrect, deduct time
+	// is user finished?
 
-		// if done
-			// generate form for user
-			// save score to local storage
-			// clear and show scores
+	// if finished:
+		// generate form for user
+		// save score to local storage
+		// clear and show scores
 			
 
 
