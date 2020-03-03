@@ -82,6 +82,7 @@
 		// display first question + answers + data attributes 
 		// (1 question, 4 potential answers)
 		displayQuestion(currentQuestion);
+		startCountDown();
 
 		});
 
@@ -126,14 +127,20 @@
 
 
 	//  start timer countdown (setInterval method recommended)
-	function startCountDown (seconds) {
-		var counter = seconds;
+	
+	var timeCount = $("#display-countdown");
+
+	function startCountDown () {
+		var secondsRemaining = 30;
 
 		var interval = setInterval(() => {
-			console.log(counter);
-			counter--;
+			secondsRemaining--;
+			console.log(secondsRemaining);
 
-			if(counter<0) {
+		// display seconds remaining
+		timeCount.text("Time remaining: " + secondsRemaining);
+
+			if(secondsRemaining === 0) {
 				clearInterval(interval);
 				console.log("Time's up!");
 			};
@@ -141,6 +148,10 @@
 			}, 1000);
 		
 	};
+
+
+
+
 
 	// create a stopCountDown function that stops the timer  
 
