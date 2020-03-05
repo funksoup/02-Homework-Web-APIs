@@ -36,6 +36,14 @@
 		margin: 10px;
 	}
 
+	.hide {
+		display: none;
+	}
+
+	.show {
+		display: block;
+	}
+
 
 
 </style>
@@ -51,9 +59,15 @@
 
 	<div id="question-area"></div>
 
-	<div id="answer-choices"></div>
+	<div id="answer-choices" class="card-body"></div>
 
 	<div id="display-countdown"></div>
+
+	<div id="button-next-div">
+		<button id="button-next">Next</button>
+	</div>
+	
+
 
 	<script type="text/javascript">
 		
@@ -86,11 +100,13 @@
 
 		$("#button-start").on("click", function() {
 
-
+		// hide start button (change class)
+		$("#button-start").addClass("hide");
 		// display first question + answer choices
 		displayQuestion(currentQuestion);
 		// start timer
 		startCountDown();
+
 
 		});
 
@@ -116,18 +132,7 @@
 					.append(element);
 			});
 
-
-
-			
-
-
-		// //  .addClass("card") to answer-choices choices-div
-		// var choicesElement = $("#answer-choices");
-		// 	choicesElement.addClass("card");
-
-		// create div for answer choices content & .addClass("card-body");
-		// var answers = $("#question-element").append("<div>")
-		// 	.addClass("card-body choices-div");
+		
 
 		// // attach click event
 		// $(".answers").on("click", function(e) {
@@ -148,6 +153,18 @@
 		// $("question-element").append(answers);
 
 	};
+
+	// add Next button 
+	$("#button-next-div").on("click", function() {
+
+		// clear 'answer-choices' div
+		$("#answer-choices").empty();
+		// display new question + answer choices
+		displayQuestion(++currentQuestion);
+		// re-start timer
+		startCountDown();
+
+	});
 
 
 	//  start timer countdown (setInterval method recommended)
@@ -183,6 +200,9 @@
 	// increment currentQuestion +1 
 
 	// generate next question
+	// add Next button - displays only when time's up or answer chosen
+
+
 
 	// is user finished?
 
