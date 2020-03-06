@@ -24,16 +24,24 @@
 		
 	}
 
+	.card {
+		border: 0px;
+	}
+
 	#answer-choices {
 		text-align: left;
-		margin-left: 100px;
-		margin-right: 100px;
+		margin-left: 25%;
+		margin-right: 25%;
 	}
 
 	.answer-button {
 		display: block;
 		width: 200px;
-		margin: 10px;
+		margin-bottom: 10px;
+	}
+
+	.btn-primary {
+		width: 100%;
 	}
 
 	.hide {
@@ -124,13 +132,25 @@
 		var cardBody = $("#answer-choices").append("<div>")
 			.addClass("card");
 
+		// // iterate through objQA[questionNumber].choices array
+		// var choicesArray = objQA[questionNumber].choices;
+		// 	choicesArray.forEach(element => {
+
+		// 		$("#answer-choices").append($("<p></p>"))
+		// 			.append(element);
+		// 	});
+
+
 		// iterate through objQA[questionNumber].choices array
 		var choicesArray = objQA[questionNumber].choices;
 			choicesArray.forEach(element => {
 
-				$("#answer-choices").append($("<p></p>"))
-					.append(element);
-			});
+				// $("#answer-choices").append($("<p></p>"))
+					var answerChoiceDiv = cardBody.append("<button>"+ element + "</button>");
+						// answerChoiceDiv.append("<button>")
+					$("#answer-choices :button").addClass("btn btn-primary answer-button")
+						// .append(element);
+			});	
 
 		
 
