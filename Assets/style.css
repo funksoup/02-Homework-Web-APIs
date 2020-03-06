@@ -1,0 +1,35 @@
+
+	body {
+		padding: 10px;
+		display: block;
+		text-align: center;
+		
+	}
+
+	.card {
+		border: 0px;
+	}
+
+	#answer-choices {
+		text-align: left;
+		margin-left: 25%;
+		margin-right: 25%;
+	}
+
+	.answer-button {
+		display: block;
+		width: 200px;
+		margin-bottom: 10px;
+	}
+
+	.btn-primary {
+		width: 100%;
+	}
+
+	.hide {
+		display: none;
+	}
+
+	.show {
+		display: block;
+	}
