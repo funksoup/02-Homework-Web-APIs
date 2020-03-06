@@ -145,32 +145,13 @@
 		var choicesArray = objQA[questionNumber].choices;
 			choicesArray.forEach(element => {
 
-				// $("#answer-choices").append($("<p></p>"))
-					var answerChoiceDiv = cardBody.append("<button>"+ element + "</button>");
-						// answerChoiceDiv.append("<button>")
-					$("#answer-choices :button").addClass("btn btn-primary answer-button")
-						// .append(element);
+				// generate button for answer choices
+				var answerChoiceDiv = cardBody.append("<button>"+ element + "</button>");
+				// add formatting for buttons 
+				$("#answer-choices :button").addClass("btn btn-primary answer-button")
+				
 			});	
 
-		
-
-		// // attach click event
-		// $(".answers").on("click", function(e) {
-		// 	console.log(e.target.attr("data-answer-index"));
-		// 	});			    
-
-		// // generate button for each answer choice
-		// objQA[questionNumber].choices.forEach((answer, answerIndex) =>  {
-		// 	var answerBtn = $(".choices-div").append("<button>")
-		// 	.addClass("btn btn-primary answer-button")
-		// 	.attr("data-answer-index", answerIndex)
-		// 	.text(answer)
-		// 	$(".choices-div").append(answerBtn);
-		// });
-
-
-		// // $("question-area").append(questionElement);
-		// $("question-element").append(answers);
 
 	};
 
