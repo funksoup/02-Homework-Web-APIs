@@ -25,6 +25,11 @@ The `objQA` object holds the test questions and has the following methods:
 		}]
 ```
 
+The following image demonstrates the application functionality:
+
+![Coding Quiz demo 1](./Assets/codingQuiz_1.png)
+
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
